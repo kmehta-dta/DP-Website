@@ -1,0 +1,412 @@
+/* Global Variables */
+:root {
+    /* Colors */
+    --primary-color: #B35C45;
+    --secondary-color: #051B39;
+    --heading-color: #051B39;
+    --body-text-color: #393939;
+    --background-color: #ffffff;
+    --tertiary-bg-color: #f6f7fa;
+    --border-color: #dadada;
+    --white: #ffffff;
+
+    /* Fonts - matching nav bar header (Montserrat) across the site */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Montserrat', sans-serif;
+
+    /* Spacing */
+    --container-width: 1200px;
+    --padding-section: 60px;
+}
+
+/* Font Faces */
+@font-face {
+    font-family: 'Montserrat';
+    src: url('assets/fonts/Montserrat/static/Montserrat-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('assets/fonts/Montserrat/static/Montserrat-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cinzel';
+    src: url('assets/fonts/Cinzel/static/Cinzel-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cinzel';
+    src: url('assets/fonts/Cinzel/static/Cinzel-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Reset & Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--body-text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    color: var(--heading-color);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: 2px solid var(--primary-color);
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+/* Header */
+header {
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+
+.logo img {
+    height: 100px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.btn-portal {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    border: 2px solid var(--primary-color);
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.btn-portal:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    font-weight: 600;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+/* Hero Section */
+.hero {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 100px 0;
+    text-align: center;
+    background-image: linear-gradient(rgba(5, 27, 57, 0.8), rgba(5, 27, 57, 0.8)), url('assets/images/slider-image.png');
+    /* Use asset if available or placeholder */
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1 {
+    color: var(--white);
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Section Common */
+section {
+    padding: var(--padding-section) 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 36px;
+    color: var(--secondary-color);
+}
+
+/* Page Header */
+.page-header h1 {
+    color: var(--white);
+}
+
+/* About Section */
+.about {
+    background-color: var(--white);
+}
+
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.services-grid.home-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .services-grid.home-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.service-card {
+    background-color: var(--tertiary-bg-color);
+    padding: 30px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+
+/* Sector Experience accordion */
+.sector-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: var(--white);
+}
+
+.sector-accordion-item {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sector-accordion-item:last-child {
+    border-bottom: none;
+}
+
+.sector-accordion-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px;
+    background-color: var(--tertiary-bg-color);
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--heading-color);
+    transition: background-color 0.2s ease;
+}
+
+.sector-accordion-trigger:hover {
+    background-color: #eef0f4;
+}
+
+.sector-accordion-trigger:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.sector-accordion-arrow {
+    flex-shrink: 0;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid var(--secondary-color);
+    transition: transform 0.25s ease;
+}
+
+.sector-accordion-trigger[aria-expanded="true"] .sector-accordion-arrow {
+    transform: rotate(180deg);
+}
+
+.sector-accordion-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.sector-accordion-panel-open {
+    max-height: 800px;
+}
+
+.sector-accordion-content {
+    padding: 20px 24px 24px;
+    background-color: var(--white);
+    border-top: 1px solid var(--border-color);
+}
+
+.sector-accordion-content p {
+    margin: 0;
+    line-height: 1.7;
+    color: var(--body-text-color);
+}
+
+/* Centered Grid for Experience Page */
+.services-grid.center-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.services-grid.center-grid .service-card {
+    flex: 0 1 300px;
+    /* Match the grid minmax width */
+}
+
+.service-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+/* Team Grid */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-member img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    background-color: #ddd;
+    /* Placeholder */
+}
+
+.team-member h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.team-member p {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Contact Section */
+.contact-info {
+    text-align: center;
+    font-size: 18px;
+}
+
+.contact-details p {
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 50px 0;
+    text-align: center;
+}
+
+footer p {
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+footer a {
+    color: var(--white);
+    text-decoration: underline;
+}
